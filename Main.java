@@ -1,5 +1,3 @@
-
-
 /*Plans
 
 Parent Character {att: strength, dexterity}
@@ -38,7 +36,7 @@ Helper class
 
 
 class Main {
-  public static void main(String[] args) {
-    System.out.println("Bring back the gold standard");
-  }
+	public static void main(String[] args) {
+		System.out.println("Socialism is a scam");
+	}
 }

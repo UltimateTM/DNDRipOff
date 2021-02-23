@@ -1,5 +1,12 @@
 public class Item {
-	public Item() {
+
+  int attackDMG, HPrestore, baseCost;
+
+  String itemName;
+  
+
+  public Item() {
 		
 	}
+
 }
