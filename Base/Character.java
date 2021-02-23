@@ -11,6 +11,7 @@ public class Character {
     this.positionX = posX;
 	}
 
+  //attacks an opponent
 	public void Attack(Character attacker, Character opponent) {
 		if(opponent.health - attacker.strength <= 0 )
     		opponent.health = 0;
@@ -25,8 +26,8 @@ public class Character {
 		}
 	}
 
-	public boolean Run(Character player) {
-		if(player.speed * rollDice() > 15)
+	public boolean Run() {
+		if(rollDice() > 10)
       return true;
     else 
       return false;
