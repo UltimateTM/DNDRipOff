@@ -36,7 +36,21 @@ public class Hud{
       System.out.println("==============================");
       System.out.println("Position: " + p.positionX);
       System.out.println("Health: " + p.getPlayerHP());
-      System.out.println(" ");
+      System.out.println("");
+    }
+
+    public static void battleScreen(Player p){
+      System.out.println("==============================");
+      p.displayStats();
+      System.out.println();
+      System.out.println("It's Time to D DDD D DUEL");
+      System.out.println();
+      System.out.println("Attack[1]");
+      System.out.println("Dodge[2]");
+      System.out.println("Guard[3]");
+      System.out.println("Run[4]");
+      System.out.println("==============================");
+	  System.out.println();
     }
 
     public static void createCharacter(){
@@ -58,15 +72,28 @@ public class Hud{
     	System.out.println();
     	System.out.println("Welcome to the Nearby Tavern");
       System.out.println("Coins: " + p.money);
-    	System.out.println("Health Pot[1], 2 coins");
-    	System.out.println("Trash Sword[2], 3 coins");
-    	System.out.println("Okay Sword[3], 5 coins");
-    	System.out.println("God Tier Sword[4], 9 coins");
-      	System.out.println("Leave[5]");
+    	System.out.println("Please select a category");
+      System.out.println("Weapons [1] \t Potions [2]");
+      System.out.println("Leave[5]");
     	System.out.println();
     	System.out.println("==============================");
    		System.out.print("Enter: ");
   	}
+
+    public static void death(Player p){
+      	System.out.println("==============================");
+    	System.out.println();
+      System.out.println("Here lies " + p.name);
+      System.out.println();
+      if(p.money >= 50)
+      System.out.println("He died a rich man after defeating many enemies");
+      else
+      System.out.println("He kinda sucked ngl");
+
+      System.out.println();
+      System.out.println("==============================");
+    
+    }
 
   	public static void clearScreen() {  
   		System.out.print("\033[H\033[2J");  

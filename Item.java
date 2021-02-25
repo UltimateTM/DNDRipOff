@@ -1,20 +1,19 @@
+import java.util.ArrayList;
+
 public class Item {
+  public static ArrayList<Item> shopWeaponItems = new ArrayList<Item>();
+  public static ArrayList<Item> shopPotionItems = new ArrayList<Item>();
 
   	public int attackDMG, HPrestore, baseCost;
 
-  	String itemName;
+  	public String itemName;
   
   	//constructor for potion
  	public Item(int hp, int cost, String name) {
-    this.HPrestore = hp;
-    this.baseCost = cost;
+    	this.HPrestore = hp;
+    	this.baseCost = cost;
 		this.itemName = name;
 	}
-
-
-  public int getHPrestore() {
-    return HPrestore;
-  }
   
 
   	//constructor for sword, parameter of double cuz I can't have 2 int constructors
@@ -30,6 +29,18 @@ public class Item {
 
     return attackDMG;
 
+  }
+
+  public String getName() {
+    return itemName;
+  }
+
+  public int getHPrestore() {
+    return HPrestore;
+  }
+
+  public int getCost() {
+    return baseCost;
   }
 
 }

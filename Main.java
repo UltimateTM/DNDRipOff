@@ -3,6 +3,9 @@ import java.util.*;
 
 class Main {
 	public static void main(String[] args) {
+    Weapon w = new Weapon();
+    Potion p = new Potion();
+    Item j = new Item();
 
     	Scanner scan = new Scanner(System.in);
     	int input = 0;
@@ -55,52 +58,134 @@ class Main {
         			input = scan.nextInt();
         			if(input == 1){
           				System.out.println("Game would start here");
-						  level.scene1Part1();
+						  level.scene1Part1(player);
         			} else if(input == 2){
-
           				Hud.shop(player);
-          				input = scan.nextInt();
+                  input = scan.nextInt();
+                  int money = player.money;
 
-                  		if(input == 1){
-                        if(player.money >= 2){
-                    		  Potion p = new Potion(5, 2, "Health Potion");
-                          player.money -= 2;
-                    		  player.addToInventory(p);
-                        } else { 
-                          System.out.println("Error 432: Too Broke");
-                          scan.next();
-						              sinput=scan.nextLine();
-                        }
-                  		} else if(input == 2){
-                        if(player.money >= 3){
-                    		  Weapon w = new Weapon(2.0, 3, "Tanto");
-                          player.money -= 3;
-							            player.addToInventory(w);
-                        } else {
-                          System.out.println("Error 432: Too Broke");
-                          scan.next();
-						              sinput=scan.nextLine();
-                        }
-                  		} else if(input == 3){
-                        if(player.money >= 5){
-                    		  Weapon w = new Weapon(5.0, 5, "Wakazashi");
-                          player.money -= 5;
-							            player.addToInventory(w);
-                        } else {
-                          System.out.println("Error 432: Too Broke");scan.next();
-						              sinput=scan.nextLine();
-                        }
-                  		} else if(input == 4){
-                        if(player.money >= 9){
-                    		  Weapon w = new Weapon(7.0, 9, "Katana");
-                          player.money -= 9;
-							            player.addToInventory(w);
-                        } else {
-                          System.out.println("Error 432: Too Broke");
-                          scan.next();
-						              sinput=scan.nextLine();
-                        }
-                  		}
+                  if (input == 1 && player.money > 0) {
+                    Hud.clearScreen();
+                    Hud.shop(player);
+                    System.out.println("Please select an Item");
+                    w.printWeaponArray();
+                    input = scan.nextInt();
+                    switch (input) {
+                      case 0:
+                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Weapon.shopWeaponItems.get(input));
+                      }
+                      break;
+
+                      case 1:
+                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Weapon.shopWeaponItems.get(input));
+                      }
+                      break;
+
+                      case 2:
+                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Weapon.shopWeaponItems.get(input));
+                      }
+                      break;
+
+                      case 3:
+                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Weapon.shopWeaponItems.get(input));
+                      }
+                      break;
+
+                      case 4:
+                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Weapon.shopWeaponItems.get(input));
+                      }
+                      break;
+                    }
+                  } else if (input == 2 && player.money > 0) {
+                    Hud.clearScreen();
+                    Hud.shop(player);
+                    System.out.println("Please select an Item");
+                    p.printPotionArray();
+                    input = scan.nextInt();
+                    switch (input) {
+                      case 0:
+                      player.money -= Potion.shopPotionItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Potion.shopPotionItems.get(input));
+                      }
+                      break;
+
+                      case 1:
+                      player.money -= Potion.shopPotionItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Potion.shopPotionItems.get(input));
+                      }
+                      break;
+
+                      case 2:
+                      player.money -= Potion.shopPotionItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Potion.shopPotionItems.get(input));
+                      }
+                      break;
+
+                      case 3:
+                      player.money -= Potion.shopPotionItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Potion.shopPotionItems.get(input));
+                      }
+                      break;
+
+                      case 4:
+                      player.money -= Potion.shopPotionItems.get(input).getCost();
+                      if (player.money < 0) {
+                        player.money = money;
+                        System.out.println("You cannot afford this item");
+                      } else {
+                        player.addToInventory(Potion.shopPotionItems.get(input));
+                      }
+                      break;
+                    }
+                  } else {
+                    Hud.clearScreen();
+                    System.out.println("You have no money.");
+                    scan.next();
+                    sinput = scan.nextLine();
+                  }
+            
+                       
 
         			} else if(input == 3){
 

@@ -29,6 +29,8 @@ public class Character {
 		if(attacker.strength >= opponent.strength) {
 			Attack(attacker, opponent);
 		}
+    else
+      Attack(opponent, attacker);
 	}
 
   public void MoveForward(Character p){
@@ -44,7 +46,6 @@ public class Character {
       return true;
     else 
       return false;
-    
 	}
 
 	public int rollDice(){

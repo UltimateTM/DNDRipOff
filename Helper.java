@@ -5,12 +5,8 @@ import java.util.ArrayList;
 
 public class Helper {
 
-  	public ArrayList<Character> characters = new ArrayList<Character>();
-
-    public ArrayList<Item> items = new ArrayList<Item>();
-
-    public ArrayList<Item> shopItems = new ArrayList<Item>();
-
+  	public static ArrayList<Character> characters = new ArrayList<Character>();
+    public static ArrayList<Item> items = new ArrayList<Item>();
 	public Helper() {
 
 	}
@@ -50,20 +46,6 @@ public class Helper {
     System.out.println();
 
     chars = null;
-  }
-
-  public static void backspace(int length) throws InterruptedException {
-
-	for(int i=0; i<length; i++) {
-		try {
-			System.out.flush();
-        	Thread.sleep(10);
-			System.out.print("\b");
-			System.out.flush();
-      	} catch (InterruptedException e) {
-        	System.out.println("Something happened");
-      	}
-	}
   }
 
   public void add(Object obj) {
