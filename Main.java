@@ -1,5 +1,6 @@
 
 import java.util.*;
+import java.lang.Thread;
 
 class Main {
 	public static void main(String[] args) {
@@ -54,7 +55,8 @@ class Main {
 
 
     			while(gameTime){
-        			Hud.gameScreen();
+            try {
+              Hud.gameScreen();
         			input = scan.nextInt();
         			if(input == 1){
           				System.out.println("Game would start here");
@@ -66,123 +68,53 @@ class Main {
 
                   if (input == 1 && player.money > 0) {
                     Hud.clearScreen();
-                    Hud.shop(player);
-                    System.out.println("Please select an Item");
+                    System.out.println("==============================");
+                    Helper.slowPrint("Coin Balance : [" + money + "]");
+                    System.out.println("==============================\n");
                     w.printWeaponArray();
+                    Helper.slowPrint("\nPlease select an Item");
                     input = scan.nextInt();
-                    switch (input) {
-                      case 0:
-                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Weapon.shopWeaponItems.get(input));
-                      }
-                      break;
 
-                      case 1:
-                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Weapon.shopWeaponItems.get(input));
-                      }
-                      break;
+                    player.money -= Weapon.shopWeaponItems.get(input).getCost();
 
-                      case 2:
-                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Weapon.shopWeaponItems.get(input));
-                      }
-                      break;
-
-                      case 3:
-                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Weapon.shopWeaponItems.get(input));
-                      }
-                      break;
-
-                      case 4:
-                      player.money -= Weapon.shopWeaponItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Weapon.shopWeaponItems.get(input));
-                      }
-                      break;
+                    if (player.money < 0) {
+                      player.money = money;
+                      Helper.slowPrint("You cannot afford this item");
+                      Thread.sleep(1500);
+                    } else {
+                      player.addToInventory(Weapon.shopWeaponItems.get(input));
+                      Helper.slowPrint("You have bought " + Weapon.shopWeaponItems.get(input).getName());
+                      Helper.slowPrint("Coin Balance : [" + player.money + "]");
+                      Thread.sleep(1500);
                     }
+
                   } else if (input == 2 && player.money > 0) {
                     Hud.clearScreen();
-                    Hud.shop(player);
-                    System.out.println("Please select an Item");
+                    System.out.println("==============================");
+                    Helper.slowPrint("Coin Balance : [" + money + "]");
+                    System.out.println("==============================\n");
                     p.printPotionArray();
+                    Helper.slowPrint("\nPlease select an Item");
                     input = scan.nextInt();
-                    switch (input) {
-                      case 0:
-                      player.money -= Potion.shopPotionItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Potion.shopPotionItems.get(input));
-                      }
-                      break;
 
-                      case 1:
-                      player.money -= Potion.shopPotionItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Potion.shopPotionItems.get(input));
-                      }
-                      break;
-
-                      case 2:
-                      player.money -= Potion.shopPotionItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Potion.shopPotionItems.get(input));
-                      }
-                      break;
-
-                      case 3:
-                      player.money -= Potion.shopPotionItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Potion.shopPotionItems.get(input));
-                      }
-                      break;
-
-                      case 4:
-                      player.money -= Potion.shopPotionItems.get(input).getCost();
-                      if (player.money < 0) {
-                        player.money = money;
-                        System.out.println("You cannot afford this item");
-                      } else {
-                        player.addToInventory(Potion.shopPotionItems.get(input));
-                      }
-                      break;
+                    player.money -= Potion.shopPotionItems.get(input).getCost();
+                    
+                    if (player.money < 0) {
+                      player.money = money;
+                      Helper.slowPrint("You cannot afford this item");
+                      Thread.sleep(1500);
+                    } else {
+                      player.addToInventory(Potion.shopPotionItems.get(input));
+                      Helper.slowPrint("You have bought " + Potion.shopPotionItems.get(input).getName());
+                      Helper.slowPrint("Coin Balance : [" + player.money + "]");
+                      Thread.sleep(1500);
                     }
+
                   } else {
                     Hud.clearScreen();
-                    System.out.println("You have no money.");
-                    scan.next();
-                    sinput = scan.nextLine();
+                    // Helper.slowPrint("You have no money.");
+                    // scan.next();
+                    // sinput = scan.nextLine();
                   }
             
                        
@@ -190,14 +122,19 @@ class Main {
         			} else if(input == 3){
 
           				player.printInventory();
-                  System.out.println("Type Anything to Exit: ");
+                  Helper.slowPrint("Type Anything to Exit: ");
 						      scan.next();
 						      sinput=scan.nextLine();
 
         			} else if(input == 4){
           				gameTime = false;
         			}
-      			}
+            } catch (InterruptedException E) {
+              System.out.println("L");
+            }
+
+      		}
+
     		} else {
     			System.out.println("L");
     			isRunning = false;

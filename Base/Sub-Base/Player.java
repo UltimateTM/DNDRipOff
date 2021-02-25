@@ -29,10 +29,6 @@ public class Player extends Character {
 		return this.money;
 	}
 
-  public int getPlayerHP() {
-    return hp;
-  }
-
   public void equipItem() {
     // item at index 0 would be the equipped item
   }
@@ -83,7 +79,7 @@ public class Player extends Character {
 
   	public void printInventory(){
 		  for(Item i: inventory) {
-			  System.out.print(" | " + i);
+			  System.out.print("| " + i.getName());
 		  }
 		  System.out.print(" |\n");
   	}

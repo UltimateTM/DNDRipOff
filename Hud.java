@@ -12,7 +12,7 @@ public class Hud{
         Helper.slowPrint("Type any other number to foolishly quit");
         System.out.println();
         System.out.println("==============================");
-        System.out.print("Enter: ");
+        Helper.slowPrint("Enter: ");
       } catch (InterruptedException E) {
         System.out.println("L");
       }
@@ -20,78 +20,108 @@ public class Hud{
   	}
 
   	public static void gameScreen(){
-    	Hud.clearScreen();
-    	System.out.println("==============================");
-    	System.out.println();
-    	System.out.println("Start Level[1]");
-    	System.out.println("Shop[2]");
-      System.out.println("Inventory[3]");
-    	System.out.println("Leave[4]");
-    	System.out.println();
-    	System.out.println("==============================");
-    	System.out.print("Enter: ");
+      try {
+        Hud.clearScreen();
+        System.out.println("==============================");
+        System.out.println();
+        Helper.slowPrint("Start Level[1]");
+        Helper.slowPrint("Shop[2]");
+        Helper.slowPrint("Inventory[3]");
+        Helper.slowPrint("Leave[4]");
+        System.out.println();
+        System.out.println("==============================");
+        Helper.slowPrint("Enter: ");
+      } catch (InterruptedException E) {
+        System.out.println("L");
+      }
+    	
   	}
 
-    public static void levelScreen(Player p){
-      System.out.println("==============================");
-      System.out.println("Position: " + p.positionX);
-      System.out.println("Health: " + p.getPlayerHP());
-      System.out.println("");
+    public static void levelScreen(Player p, Enemy b){
+      try {
+        System.out.println("====================================");
+        Helper.slowPrint("Position: " + p.positionX + "\tEnemy's Position: " + b.positionX);
+        Helper.slowPrint("Health: " + p.getPlayerHP() + "\tEnemy's Health: " + b.getPlayerHP());
+		System.out.println("====================================");
+        System.out.println("");
+        System.out.println("Inventory");
+		    p.printInventory();
+        System.out.println();
+      } catch (InterruptedException E) {
+        System.out.println("L");
+      }
     }
 
     public static void battleScreen(Player p){
-      System.out.println("==============================");
-      p.displayStats();
-      System.out.println();
-      System.out.println("It's Time to D DDD D DUEL");
-      System.out.println();
-      System.out.println("Attack[1]");
-      System.out.println("Dodge[2]");
-      System.out.println("Guard[3]");
-      System.out.println("Run[4]");
-      System.out.println("==============================");
-	  System.out.println();
+      try {
+        p.displayStats();
+        System.out.println();
+		System.out.println("==============================");
+        Helper.slowPrint("It's Time to D DDD D DUEL");
+        System.out.println();
+        Helper.slowPrint("Attack[1]");
+        Helper.slowPrint("Dodge[2]");
+        Helper.slowPrint("Guard[3]");
+        Helper.slowPrint("Step Forward[4]");
+        Helper.slowPrint("Run Forward[5]");
+        System.out.println("==============================");
+	    System.out.println();
+      } catch (InterruptedException E) {
+        System.out.println("L");
+      }
     }
 
     public static void createCharacter(){
-      	Hud.clearScreen();
+      try {
+        Hud.clearScreen();
       	System.out.println("==============================");
       	System.out.println();
-      	System.out.println("Barbarian[1]");
-      	System.out.println("Rogue[2]");
-      	System.out.println("Wizard[3]");
+      	Helper.slowPrint("Barbarian[1]");
+      	Helper.slowPrint("Rogue[2]");
+      	Helper.slowPrint("Wizard[3]");
       	System.out.println();
       	System.out.println("==============================");
-     	System.out.print("Enter: ");       
+     	  Helper.slowPrint("Enter: "); 
+      } catch (InterruptedException E) {
+        System.out.println("L");
+      }     
        
     }
 
   	public static void shop(Player p){
-    	Hud.clearScreen();
-    	System.out.println("==============================");
-    	System.out.println();
-    	System.out.println("Welcome to the Nearby Tavern");
-      System.out.println("Coins: " + p.money);
-    	System.out.println("Please select a category");
-      System.out.println("Weapons [1] \t Potions [2]");
-      System.out.println("Leave[5]");
-    	System.out.println();
-    	System.out.println("==============================");
-   		System.out.print("Enter: ");
+      try {
+        Hud.clearScreen();
+        System.out.println("==============================");
+        System.out.println();
+        Helper.slowPrint("Welcome to the Nearby Tavern");
+        Helper.slowPrint("Coins: " + p.money);
+        Helper.slowPrint("Please select a category\n");
+        Helper.slowPrint("Weapons [1] \t Potions [2]\n");
+        Helper.slowPrint("\t\tLeave [3]\t\t\n");
+        System.out.println("==============================");
+        Helper.slowPrint("Enter: ");
+      } catch (InterruptedException E) {
+        System.out.println("L");
+      }
   	}
 
     public static void death(Player p){
-      	System.out.println("==============================");
-    	System.out.println();
-      System.out.println("Here lies " + p.name);
-      System.out.println();
-      if(p.money >= 50)
-      System.out.println("He died a rich man after defeating many enemies");
-      else
-      System.out.println("He kinda sucked ngl");
+      try {
+        System.out.println("==============================");
+        System.out.println();
+        Helper.slowPrint("Here lies " + p.name);
+        System.out.println();
+        if(p.money >= 50)
+        Helper.slowPrint("He died a rich man after defeating many enemies");
+        else
+        Helper.slowPrint("He kinda sucked ngl");
 
-      System.out.println();
-      System.out.println("==============================");
+        System.out.println();
+        System.out.println("==============================");
+    
+      } catch (InterruptedException E) {
+        System.out.println("L");
+      }
     
     }
 

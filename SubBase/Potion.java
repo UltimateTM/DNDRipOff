@@ -25,6 +25,7 @@ public class Potion extends Item{
       for (int i = 0; i < shopPotionItems.size(); i++) {
         System.out.println(shopPotionItems.get(i).getName() + " : [" + i + "]");
         System.out.println("Cost : " + shopPotionItems.get(i).getCost());
+        System.out.println();
       }
     }
 }
