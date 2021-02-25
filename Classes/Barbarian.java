@@ -2,8 +2,14 @@ public class Barbarian extends Player {
 
 	
 
-	public Barbarian(int hp, int dex, int spd, int str, int posX, int mon) {
-		super(hp, dex, spd, str, posX, mon);
+	public Barbarian() {
+		super(17, 15, 15, 18, 0, 10);
+	}
+
+  public void Defend(Character attacker, Character opponent) {
+		if(attacker.strength >= opponent.strength + 2) {
+			Attack(attacker, opponent);
+		}
 	}
   
 }
