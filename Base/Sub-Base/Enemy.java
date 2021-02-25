@@ -9,7 +9,7 @@ public class Enemy extends Character {
 
  	public void Attack(Character attacker, Character opponent){
     	if(rollDice() > 10){
-      		//opponent.health - attacker.strength;
+        opponent.health -= attacker.strength;
     	}
   	}
 }

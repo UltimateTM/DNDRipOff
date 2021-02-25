@@ -5,9 +5,11 @@ public class Player extends Character {
 
 	public String name;
 	public int money;
+  public int hp;
 	public String[] codes;
 	public Scanner sc = new Scanner(System.in);
-  public ArrayList<Item> inventory = new ArrayList<Item>();
+
+  	public ArrayList<Item> inventory = new ArrayList<Item>();
 
 	public Player(int hp, int dex, int spd, int str, int posX, int mon) {
 		super(hp, dex, spd, str, posX);
@@ -15,6 +17,7 @@ public class Player extends Character {
 		System.out.println("Please enter your name brave warrior: ");
 		this.name = sc.nextLine();
 		this.money = mon;
+    this.hp = hp;
 		codes = new String[3];
 	}
 
@@ -25,6 +28,14 @@ public class Player extends Character {
 	public int getMoney(){
 		return this.money;
 	}
+
+  public int getPlayerHP() {
+    return hp;
+  }
+
+  public void equipItem() {
+    // item at index 0 would be the equipped item
+  }
 
 	public void addCode(String code) {
 		String temp[] = new String[codes.length+1];
