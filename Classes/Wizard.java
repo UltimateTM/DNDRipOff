@@ -13,5 +13,11 @@ public class Wizard extends Player {
     }
     else System.out.println("get closer... L");
 	}
+//Display stats overwritten to show the increase in range to the player
+  public void displayStats(){
+	  	System.out.println("--------------------------------------------");
+	  	System.out.println("| " +  "Health: " + this.health + "   | " +  "Dexterity: " + this.dexterity + " | " +  "Speed: " + this.speed + "\n| " +  "Strength: " + this.strength + " | " + "Coins: " + this.money + " |  " + "Range: 8  |");
+	  	System.out.println("--------------------------------------------");
+  	}
   
 }

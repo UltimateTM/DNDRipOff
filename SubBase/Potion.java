@@ -8,7 +8,7 @@ public class Potion extends Item{
   	}
 
   	//health potion adds its effect to the character's health
-  	public void useItem(Character me){
+  	public void equip(Character me){
    		me.health += this.HPrestore;
   	}
 
