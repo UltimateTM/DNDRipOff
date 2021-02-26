@@ -14,7 +14,7 @@ public class Barbarian extends Player {
 		}
 	}
 //Barbarian has 2 attacks, they are able to use heavy and light attacks
-  public void Attack(Character attacker, Character opponent) {
+  	public void Attack(Character attacker, Character opponent) {
       	System.out.println();
         System.out.println("[1] Heavy Attack");
         System.out.println("[2] Light Attack");
@@ -22,33 +22,31 @@ public class Barbarian extends Player {
         System.out.println("==============================");
         choice = scan.nextInt();
 
-      while(choice != 1 && choice != 2){
-       System.out.println("Pick a better number, nerd");
-        choice = scan.nextInt();
-    }
+      	while(choice != 1 && choice != 2){
+       		System.out.println("Pick a better number, nerd");
+        	choice = scan.nextInt();
+    	}
 //Heavy
-  if(choice == 1){
-    if(opponent.positionX - attacker.positionX <= 5){
-		if(opponent.health - (attacker.strength + 3) <= 0 )
-    		opponent.health = 0;
-    	else 
-    		opponent.health -= (attacker.strength + 3);
+  		if(choice == 1){
+    		if(opponent.positionX - attacker.positionX <= 5){
+				if(opponent.health - (attacker.strength + 3) <= 0 )
+    				opponent.health = 0;
+    			else 
+    				opponent.health -= (attacker.strength + 3);
 
-          attacker.health -= 3;
-    }
-    else System.out.println("get closer... L");
-  }
+          		attacker.health -= 3;
+   			}
+    		else System.out.println("get closer... L");
+  		}
 //Light
-  else if(choice == 2)
-  if(opponent.positionX - attacker.positionX <= 5){
-		if(opponent.health - attacker.strength <= 0 )
-    		opponent.health = 0;
-    	else 
-    		opponent.health -= attacker.strength;
-  }
-    else System.out.println("get closer... L");
-
-    
+  		else if(choice == 2)
+  			if(opponent.positionX - attacker.positionX <= 5){
+				if(opponent.health - attacker.strength <= 0 )
+    				opponent.health = 0;
+    			else 
+    				opponent.health -= attacker.strength;
+  			}
+    		else System.out.println("get closer... L");
 	}
   
 }

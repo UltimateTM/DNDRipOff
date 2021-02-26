@@ -13,9 +13,9 @@ public class Character {
 
 	public Character(){}
 
-  public int getPlayerHP() {
-    return this.health;
-  }
+  	public int getPlayerHP() {
+    	return this.health;
+  	}
 
   //attacks an opponent
 	public void Attack(Character attacker, Character opponent) {
@@ -37,23 +37,23 @@ public class Character {
     	else
       	Attack(opponent, attacker);
 	}
-
-  public void MoveForward(Character p){
-    p.positionX += 3;
-  }
-
-  public void MoveBackward(Character p){
-    p.positionX -= 3;
+//moves character forward
+  	public void MoveForward(Character p){
+    	p.positionX += 3;
+  	}
+//moves character backward
+  	public void MoveBackward(Character p){
+    	p.positionX -= 3;
  	}
-
-  public void RunForward(Character p){
-    p.positionX += p.speed;
-  }
-
-  public void RunBackward(Character p){
-    p.positionX -= p.speed;
+//moves character forward based on speed stat
+  	public void RunForward(Character p){
+    	p.positionX += p.speed;
+  	}
+//moves character backward based on speed stat
+  	public void RunBackward(Character p){
+    	p.positionX -= p.speed;
  	}
-
+//runs speed check and player attacks if they have higher speed
 	public void Run(Character attacker, Character opponent) {
 
     	if(attacker.speed >= opponent.speed)
@@ -61,16 +61,15 @@ public class Character {
     	else
 			  Attack(opponent, attacker);
 	}
-
+//random number generator 1-20
 	public int rollDice(){
     	return (int) (Math.random() * 20 + 1);
 	}
-
-  public int getDistance(Character p, Character e){
-    int distance = p.positionX - e.positionX;
-    return distance;
-  }
-
+//gets distance between player and enemy
+  	public int getDistance(Character p, Character e){
+    	return p.positionX - e.positionX;
+  	}
+//
 	public boolean isDead() {
 		if(this.health <=0) 
 			return true;

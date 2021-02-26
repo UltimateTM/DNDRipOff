@@ -25,22 +25,25 @@ public class Item {
 
   public Item(){}
 
+  //returns damage
 	public int getAttackDMG() {
-
     return attackDMG;
-
   }
-
+  //returns name
   public String getName() {
     return itemName;
   }
-
+  //returns health back if its a potion
   public int getHPrestore() {
     return HPrestore;
   }
-
+  //returns cost
   public int getCost() {
     return baseCost;
+  }
+  //gets overriden in each child, Potion and Weapon equip an item differently
+  public void equip(Character m){
+    
   }
 
 }
