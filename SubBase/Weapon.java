@@ -26,6 +26,7 @@ public class Weapon extends Item{
     for (int i = 0; i < shopWeaponItems.size(); i++) {
       System.out.println(shopWeaponItems.get(i).getName() + " : [" + i + "]");
       System.out.println("Cost : " + shopWeaponItems.get(i).getCost());
+      System.out.println();
     }
   }
   

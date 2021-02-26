@@ -4,11 +4,12 @@ public class Rogue extends Player {
 	}
 
   //normally run would return true if dice was > 10, for rogue it can be smaller and still be successful
-  public boolean Run(){
-    if(rollDice() > 5)
-      return true;
-    else  
-      return false;
-  }
+  public void Run(Character attacker, Character opponent) {
+
+    	if(attacker.speed + 3 >= opponent.speed)
+      		Attack(attacker, opponent);
+    	else
+			  Attack(opponent, attacker);
+	}
 
 }

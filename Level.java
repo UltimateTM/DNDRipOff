@@ -10,7 +10,7 @@ public class Level {
     public boolean completed;
     public Scanner scan = new Scanner(System.in);
     public String input = "";
-	public String[] story = {"It is dark","Press [1] to light match", "In Front of you stands a tall Sbark. Go merk him", "Press[1] to battle this dude", "Nice, you totally mercced that guy", "You failed, try to merc him again!"};
+	public String[] story = {"It is dark","Press [1] to light match", "In Front of you stands a tall Sbark. Go merk him", "Press [Enter] to battle this dude", "Nice, you totally mercced that guy", "You failed, try to merc him again!"};
 
 	public Level(Player p, Enemy b, int mon, boolean finished) {
 		this.player = p;
@@ -25,14 +25,13 @@ public class Level {
 
 	public void scene1Part1(Player p) {
 
-    	Enemy bob = new Enemy(5, 5, 5, 5, 5);
+    	Enemy bob = new Enemy(50, 5, 5, 5, 20);
 		Hud.clearScreen();
     	try {
 			Helper.slowPrint(story[0]);
 			Thread.sleep(100);
-			//Helper.backspace(coolness.length());
 			Helper.slowPrint(story[1]);
-    input = scan.nextLine();
+    		input = scan.nextLine();
 			
 			while(!input.equals("1")) {
      			input = scan.nextLine();
@@ -42,51 +41,50 @@ public class Level {
       	Helper.slowPrint(story[3]);
       	input = scan.nextLine();
 
-      	if(input.equals("1")){
-        	boolean game = true;
-
-        	while(game){
-
-				while(!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")) {
-					Hud.clearScreen();
-      				Hud.levelScreen(p);
-					Hud.battleScreen(p);
-					System.out.println("Invalid Response. Please enter valid response you noob");
-              		scan.next();
-      				input = scan.nextLine();
-				}
-
-				Hud.clearScreen();
-      			Hud.levelScreen(p);
-				Hud.battleScreen(p);
-      			scan.next();
-      			input = scan.nextLine();
-			
-
-          		if(input.equals("1")){
-            		p.Attack(p, bob);
-          		} else if(input.equals("2")){
-
-            	if(p.Run())
-              		p.Defend(p, bob);
-            	else
-              		bob.Attack(bob, p);
-
-          	} else if(input.equals("3")){
-            p.Defend(p, bob);
-          }
-
-        }
-
-		Helper.slowPrint(story[4]);
-		input=scan.nextLine();
-      }
-
-      
+		scene1Part2(p, bob);
       
     	} catch (InterruptedException E) {
         	System.out.println("L");
       	}	
+		
+	}
+
+	public void scene1Part2(Player p, Enemy b) throws InterruptedException{
+
+		try {
+			while(!p.isDead() && !b.isDead()) {
+				Hud.clearScreen();
+      			Hud.levelScreen(p, b);
+				Hud.battleScreen(p);
+				input=scan.nextLine();
+				b.MoveForward(p);
+				switch(input) {
+					case "1":
+						p.Attack(p, b);
+						break;
+					case "2":
+						p.Run(p, b);
+						break;
+					case "3":
+						p.Defend(p, b);
+						break;
+					case "4":
+						p.MoveForward(p);
+						break;
+          case "5":
+						p.RunForward(p);
+						break;
+					default:
+						System.out.println("Please enter a valid response you noob");
+						break;
+				}
+			}
+
+			Helper.slowPrint(story[4]);
+
+		} catch (InterruptedException E){
+			System.out.println("L");
+		}
 		
 	}
 
